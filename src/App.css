@@ -70,9 +70,15 @@ font-size: 30px;
   background-color: #5AAD5A;
 }
 
-.btn:hover, .btn:focus {
+.btn:hover, .btn:focus .btn_google:hover, .btn_google:focus {
   box-shadow: 0px 0px 22px -8px rgba(0,0,0,1);
 }
+
+.btn_google {
+  transition: 0.3s;
+  width: 60%;
+}
+
 
 .line {
   margin-left: auto;
