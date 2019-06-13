@@ -4,7 +4,8 @@ import fire from "./config/Firekey";
 import firebase from "firebase";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import google_login from "./Components/Images/google_login.png";
+import google_btn from "./Components/Images/google.svg";
+import firebase_icon from "./Components/Images/firebase.svg";
 
 class Login extends Component {
   constructor(props) {
@@ -29,11 +30,11 @@ class Login extends Component {
     var { email, password } = this.state;
 
     // if (email.length < 4) {
-    //   alert("Please enter an email address");
+    //   alert("Please enter a valid email address");
     //   return;
     // }
     // if (password.length < 4) {
-    //   alert("Please enter a strong password");
+    //   alert("Please enter a stronger password");
     //   return;
     // }
     fire
@@ -93,35 +94,14 @@ class Login extends Component {
       });
   };
 
-  // onFacebookLogin = e => {
-  //   var provider = new firebase.auth.FacebookAuthProvider();
-  //   firebase
-  //     .auth()
-  //     .signInWithPopup(provider)
-  //     .then(function(result) {
-  //       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-  //       var token = result.credential.accessToken;
-  //       // The signed-in user info.
-  //       var user = result.user;
-  //       // ...
-  //     })
-  //     .catch(function(error) {
-  //       // Handle Errors here.
-  //       var errorCode = error.code;
-  //       var errorMessage = error.message;
-  //       // The email of the user's account used.
-  //       var email = error.email;
-  //       // The firebase.auth.AuthCredential type that was used.
-  //       var credential = error.credential;
-  //       // ...
-  //     });
-  // };
-
   render() {
     return (
       <div className="form">
-        <h2>Login</h2>
-        <div className="line" />
+        <div className="header">
+          <img src={firebase_icon} />
+          <h3>Firebase Authentication</h3>
+        </div>
+        <br />
         <div className="input_boxes">
           <input
             value={this.state.email}
@@ -141,16 +121,15 @@ class Login extends Component {
         </div>
         <div className="btns">
           <button type="submit" onClick={this.onLogin} className="btn">
-            Login
+            Sign in
           </button>
           <button type="submit" onClick={this.onSignup} className="btn">
             Signup
           </button>
-          <img
-            className="btn_google"
-            onClick={this.onGoogleLogin}
-            src={google_login}
-          />
+          <button className="btn_google" onClick={this.onGoogleLogin}>
+            <img src={google_btn} />
+          </button>
+
           {/* <button type="submit" onClick={this.onFacebookLogin} className="btn">
             Facebook
           </button> */}
